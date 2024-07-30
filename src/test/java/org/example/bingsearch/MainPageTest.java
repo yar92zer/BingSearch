@@ -57,7 +57,7 @@ public class MainPageTest {
 
     public void clickElement(List<WebElement> results, int num) {
         results.get(num).click();
-        System.out.println("Клик по номеру 0 поиска");
+        System.out.println("Клик по номеру " + num + " поиска");
     }
 
     public static void goToSecondPageIfExists(WebDriver driver) {
