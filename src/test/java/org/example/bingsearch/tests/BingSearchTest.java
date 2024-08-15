@@ -41,7 +41,6 @@ public class BingSearchTest {
         rp.clickElement(0);
 
         assertEquals("https://www.selenium.dev/", driver.getCurrentUrl(), "Открылсья не верная ссылка");
-
     }
 
     @Test
