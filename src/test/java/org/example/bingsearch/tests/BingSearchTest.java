@@ -50,6 +50,6 @@ public class BingSearchTest {
         MainPage mp = new MainPage(driver);
         mp.sendText(input);
         ResultsPage rp = new ResultsPage(driver);
-        assertEquals(input, rp.gerTextFromSearchField(), "Текст не совпал");
+        assertEquals(input, rp.getTextFromSearchField(), "Текст не совпал");
     }
 }

@@ -15,18 +15,24 @@ public class ResultsPage {
     @FindBy(css = "h2 > a[href]")
     private List<WebElement> results;
 
+    public ResultsPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
+
     public void clickElement(int num) {
         results.get(num).click();
         System.out.println("Нажатие на результат под номером " + num);
     }
 
-    public String gerTextFromSearchField() {
+    public String getTextFromSearchField() {
         String val = searchField.getAttribute("value");
-        System.out.println("В строке поиска текс:" + val);
+        System.out.println("В строке поиска текст: " + val);
         return val;
     }
 
-    public ResultsPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+    public boolean hasResults() {
+        boolean hasResults = !results.isEmpty();
+        System.out.println("Результаты поиска найдены: " + hasResults);
+        return hasResults;
     }
 }
