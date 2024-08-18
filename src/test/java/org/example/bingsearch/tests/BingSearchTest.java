@@ -38,8 +38,9 @@ public class BingSearchTest {
         mp.sendText(input);
 
         ResultsPage rp = new ResultsPage(driver);
+        rp.waitForResultWithText(input);
         rp.clickElement(0);
-
+        rp.goToSearchPageIfExists();
         assertEquals("https://www.selenium.dev/", driver.getCurrentUrl(), "Открылсья не верная ссылка");
     }
 
