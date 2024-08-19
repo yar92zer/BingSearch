@@ -40,7 +40,7 @@ public class BingSearchTest {
         ResultsPage rp = new ResultsPage(driver);
         rp.waitForResultWithText(input);
         rp.clickElement(0);
-        rp.goToSearchPageIfExists();
+        rp.goToLastWindow();
         assertEquals("https://www.selenium.dev/", driver.getCurrentUrl(), "Открылсья не верная ссылка");
     }
 

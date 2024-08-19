@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ResultsPage {
@@ -56,14 +57,8 @@ public class ResultsPage {
         System.out.println("Ожидание завершено: элемент с текстом '" + text + "' найден элемент с текстом");
     }
 
-    public void goToSearchPageIfExists() {
-        String secondPageSelector = "a.sb_pagN";
-        List<WebElement> paginationLinks = driver.findElements(By.cssSelector(secondPageSelector));
-        if (!paginationLinks.isEmpty()) {
-            paginationLinks.get(0).click();
-            System.out.println("Переход на вторую вкладку браузера");
-        } else {
-            System.out.println("Вторая вкладка результата нет");
-        }
+    public void goToLastWindow() {
+        List<String> windowHandles = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(windowHandles.get(windowHandles.size() - 1));
     }
 }
